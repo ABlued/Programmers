@@ -1,3 +1,4 @@
+//이 부분은 Vector로 푼 코드이다
 package CraneClawGame;
 
 import java.util.Vector;
@@ -24,8 +25,7 @@ public class Main {
 	
 	static int[][] pull(int board[][], int row, Vector<Integer> v){
 		for(int i  = 0; i < board.length; i++) {
-			if(board[i][row] == 0) continue;
-			else {
+			if(board[i][row] != 0) {
 				v.add(board[i][row]);
 				board[i][row] = 0;
 				break;
@@ -34,14 +34,12 @@ public class Main {
 		return board;
 	}
 	static int checkDuplicate(Vector<Integer> v, int answer) {
-		if(v.size() < 2) ;
-		else {
+		if(v.size() > 1) 
 			if(v.get(v.size() - 1) == v.get(v.size() - 2)) {
 				v.remove(v.size()-1);
 				v.remove(v.size()-1);
 				answer +=2;
 			}
-		}
 		return answer;
 	}
 	
